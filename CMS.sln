@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.IoC", "Infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{3722F4F5-846A-4F43-A38A-029EC4D01981}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Application", "CMS.Application\CMS.Application.csproj", "{7741F418-3DEA-4815-9D9B-AE937E95467B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Application", "CMS.Application\CMS.Application.csproj", "{7741F418-3DEA-4815-9D9B-AE937E95467B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Domain", "CMS.Domain\CMS.Domain.csproj", "{71BCC0EB-EDBC-4AA8-BF24-9963BCFB73E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Domain", "CMS.Domain\CMS.Domain.csproj", "{71BCC0EB-EDBC-4AA8-BF24-9963BCFB73E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Infrastructure.Data", "CMS.Infrastructure.Data\CMS.Infrastructure.Data.csproj", "{833B0A53-342C-4219-B69F-30623EAE1B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Infrastructure.Data", "CMS.Infrastructure.Data\CMS.Infrastructure.Data.csproj", "{833B0A53-342C-4219-B69F-30623EAE1B9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Infrastructure.IoC", "CMS.Infrastructure.IoC\CMS.Infrastructure.IoC.csproj", "{E134D24C-A7AD-4725-B427-A2DA63DC7E58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Infrastructure.IoC", "CMS.Infrastructure.IoC\CMS.Infrastructure.IoC.csproj", "{E134D24C-A7AD-4725-B427-A2DA63DC7E58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.WebApi", "CMS.WebApi\CMS.WebApi.csproj", "{ADF3B5FD-1CAD-455A-B094-B866B05BB50F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.WebApi", "CMS.WebApi\CMS.WebApi.csproj", "{ADF3B5FD-1CAD-455A-B094-B866B05BB50F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
