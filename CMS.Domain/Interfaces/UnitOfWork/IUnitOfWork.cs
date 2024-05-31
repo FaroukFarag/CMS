@@ -4,7 +4,7 @@ namespace CMS.Domain.Interfaces.UnitOfWork;
 
 public interface IUnitOfWork
 {
-    public ICustomerRepository Categories { get; set; }
+    public ICustomerRepository Customers { get; set; }
 
     Task Complete();
 }

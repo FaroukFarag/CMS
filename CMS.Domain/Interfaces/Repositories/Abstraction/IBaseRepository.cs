@@ -1,6 +1,8 @@
-﻿namespace CMS.Domain.Interfaces.Repositories.Abstraction;
+﻿using CMS.Domain.Models.Abstraction;
 
-public interface IBaseRepository<T>
+namespace CMS.Domain.Interfaces.Repositories.Abstraction;
+
+public interface IBaseRepository<T> where T : BaseModel
 {
     Task<T> CreateAsync(T entity);
     Task<T> GetAsync(int id);

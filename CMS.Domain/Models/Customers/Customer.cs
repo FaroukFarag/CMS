@@ -1,8 +1,9 @@
-﻿namespace CMS.Domain.Models.Customers;
+﻿using CMS.Domain.Models.Abstraction;
 
-public class Customer
+namespace CMS.Domain.Models.Customers;
+
+public class Customer : BaseModel
 {
-    public int Id { get; set; }
     public string FirstName { get; set; } = default!;
     public string LastName { get; set; } = default!;
     public string Email { get; set; } = default!;
