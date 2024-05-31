@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CMS.Application\CMS.Application.csproj" />
+    <ProjectReference Include="..\CMS.Common\CMS.Common.csproj" />
     <ProjectReference Include="..\CMS.Infrastructure.Data\CMS.Infrastructure.Data.csproj" />
   </ItemGroup>
 

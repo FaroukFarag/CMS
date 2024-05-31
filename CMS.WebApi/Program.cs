@@ -9,12 +9,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.RegisterServices();
 builder.Services.RegisterDbContext(builder.Configuration);
+builder.Services.RegisterConfiguration(builder.Configuration);
+builder.Services.RegisterServices();
 builder.Services.RegisterRepositories();
 builder.Services.RegisterUnitOfWork();
 builder.Services.RegisterAutoMapper();
 builder.Services.RegisterValidators();
+builder.Services.RegisterIdentity();
+builder.Services.RegisterJwtSettings(builder.Configuration);
 
 var app = builder.Build();
 

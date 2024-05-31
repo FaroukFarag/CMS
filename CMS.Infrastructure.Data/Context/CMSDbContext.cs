@@ -1,10 +1,12 @@
 ﻿using CMS.Domain.Models.Customers;
+using CMS.Domain.Models.Users;
 using CMS.Infrastructure.Data.ModelsConfigurations.Customers;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Infrastructure.Data.Context;
 
-public class CMSDbContext : DbContext
+public class CMSDbContext : IdentityDbContext<ApplicationUser>
 {
     public DbSet<Customer> Customers { get; set; }
 
@@ -14,6 +16,8 @@ public class CMSDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.ApplyConfiguration(new CustomerConfigurations());
     }
 }

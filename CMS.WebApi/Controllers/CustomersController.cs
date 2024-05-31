@@ -1,11 +1,13 @@
 ﻿using CMS.Application.Dtos.Customers;
 using CMS.Application.Interfaces.Customers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class CustomersController : ControllerBase
 {
     private readonly ICustomerService _service;

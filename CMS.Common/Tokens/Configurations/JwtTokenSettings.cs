@@ -16,5 +16,5 @@ public class JwtTokenSettings
     public string SecretKey { get; set; } = default!;
 
     [NotNull]
-    public int LifeTime { get; set; } = default!;
+    public ushort LifeTime { get; set; } = default!;
 }

@@ -30,5 +30,10 @@ public class CustomerConfigurations : IEntityTypeConfiguration<Customer>
         builder.Property(c => c.Address)
             .HasMaxLength(250)
             .IsRequired(false);
+
+        builder.HasOne(c => c.User)
+            .WithOne(u => u.Customer)
+            .HasForeignKey<Customer>(c => c.UserId)
+            .IsRequired(false);
     }
 }
