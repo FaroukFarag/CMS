@@ -1,1 +1,61 @@
-<p>edit-customer works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" [ngClass]="{ 'is-invalid' : customerForm.get('firstName')?.errors && 
+                        (customerForm.get('firstName')?.touched || customerForm.get('firstName')?.touched) }"
+                    id="firstName" formControlName="firstName">
+                <div class="invalid-feedback"
+                    *ngIf="customerForm.get('firstName')?.errors && (customerForm.get('firstName')?.touched || customerForm.get('firstName')?.touched)">
+                    First Name is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="lastName" class="form-control" [ngClass]="{ 'is-invalid' : customerForm.get('lastName')?.errors && 
+                        (customerForm.get('lastName')?.touched || customerForm.get('lastName')?.touched) }"
+                    id="lastName" formControlName="lastName">
+                <div class="invalid-feedback"
+                    *ngIf="customerForm.get('lastName')?.errors && (customerForm.get('lastName')?.touched || customerForm.get('lastName')?.touched)">
+                    Last Name is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" [ngClass]="{ 'is-invalid' : customerForm.get('email')?.errors && 
+                        (customerForm.get('email')?.touched || customerForm.get('email')?.touched) }" id="email"
+                    formControlName="email">
+                <div class="invalid-feedback"
+                    *ngIf="customerForm.get('email')?.errors && (customerForm.get('email')?.touched || customerForm.get('email')?.touched)">
+                    Email is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="phone" class="form-control" [ngClass]="{ 'is-invalid' : customerForm.get('phone')?.errors && 
+                        (customerForm.get('phone')?.touched || customerForm.get('phone')?.touched) }" id="password"
+                    formControlName="phone">
+                <div class="invalid-feedback"
+                    *ngIf="customerForm.get('phone')?.errors && (customerForm.get('phone')?.touched || customerForm.get('phone')?.touched)">
+                    Phone is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" [ngClass]="{ 'is-invalid' : customerForm.get('address')?.errors && 
+                        (customerForm.get('address')?.touched || customerForm.get('address')?.touched) }" id="address"
+                    formControlName="address">
+                <div class="invalid-feedback"
+                    *ngIf="customerForm.get('address')?.errors && (customerForm.get('address')?.touched || customerForm.get('address')?.touched)">
+                    Address is required.
+                </div>
+            </div>
+            <button type="submit" [disabled]="customerForm.invalid" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

@@ -7,20 +7,19 @@ import { StorageService } from '../shared/storage.service';
   providedIn: 'root'
 })
 export class AuthService {
-
-  private baseUrl = 'https://localhost:7096/api/Users';
+  private apiURL = 'https://localhost:7096/api/Users';
 
   constructor(private http: HttpClient, private storageService: StorageService) { }
 
   register(user: any): Observable<string> {
-    return this.http.post(`${this.baseUrl}/register`, user, { responseType: 'text' })
+    return this.http.post(`${this.apiURL}/register`, user, { responseType: 'text' })
       .pipe(
         tap(token => this.saveToken(token))
       );
   }
 
   login(credentials: any): Observable<string> {
-    return this.http.post(`${this.baseUrl}/login`, credentials, { responseType: 'text' })
+    return this.http.post(`${this.apiURL}/login`, credentials, { responseType: 'text' })
       .pipe(
         tap(token => this.saveToken(token))
       );
