@@ -25,8 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\" />
     <Folder Include="Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CMS.WebApi\CMS.WebApi.csproj" />
   </ItemGroup>
 
 </Project>
