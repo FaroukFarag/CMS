@@ -23,9 +23,10 @@
                 </div>
             </div>
 
-            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Log in</button>
-            <br />
-            <a routerLink="/users/register" class="nav-link">Register</a>
+            <div class="d-flex align-items-center">
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary me-2">Log in</button>
+                <a routerLink="/users/register" class="nav-link">Register</a>
+            </div>
         </form>
     </div>
 </div>
