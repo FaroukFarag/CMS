@@ -33,7 +33,7 @@ export class CustomersComponent  implements OnInit {
   }
 
   onDelete(id: number) {
-    if(confirm("Are you sure to delete this category?")) {
+    if(confirm(`Are you sure to delete this customer with id ${id}?`)) {
       this.customerService.deleteCustomer(id).subscribe(() => {
         this.customers = this.customers.filter(customer => customer.id !== id);
       });

@@ -6,7 +6,7 @@ import { Observable, catchError, retry, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class CustomerService {
-  private apiURL = 'http://localhost:50802/api';
+  private apiURL = 'https://localhost:7096/api';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export class CustomerService {
   updateCustomer(customer: any): Observable<any> {
     return this.http
       .put(
-        `${this.apiURL}/Customer/Update`,
+        `${this.apiURL}/Customers/Update`,
         customer,
         this.httpOptions
       )

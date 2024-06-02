@@ -3,12 +3,19 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { httpInterceptorService } from './services/shared/http-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),
-    provideHttpClient()]
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([
+        httpInterceptorService
+      ])
+    ),
+  ],
 };

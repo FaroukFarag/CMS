@@ -15,7 +15,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <ng-container *ngIf="isAuthenticated; else loggedOut">
-              <a href="#" class="nav-link">
+              <a href="#" class="nav-link" (click)="logout()">
                 Log out
               </a>
             </ng-container>

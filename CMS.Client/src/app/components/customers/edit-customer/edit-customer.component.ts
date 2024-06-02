@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './edit-customer.component.css'
 })
 export class EditCustomerComponent implements OnInit {
+  id = 0;
   customerForm!: FormGroup;
 
   constructor(
@@ -26,15 +27,16 @@ export class EditCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
 
-    const id = this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get('id')!;
 
-    if(id) {
-      this.initializeCustomer(id);
+    if (this.id) {
+      this.initializeCustomer(this.id);
     }
   }
 
   createForm() {
     this.customerForm = this.formBuilder.group({
+      id: [0],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
@@ -61,7 +63,11 @@ export class EditCustomerComponent implements OnInit {
   }
 
   onSubmit() {
-    this.customerService.createCustomer(this.customerForm.value).subscribe();
+    if (this.id) {
+      this.customerService.updateCustomer(this.customerForm.value).subscribe();
+    } else {
+      this.customerService.createCustomer(this.customerForm.value).subscribe();
+    }
 
     this.router.navigate(['/customers']);
   }
