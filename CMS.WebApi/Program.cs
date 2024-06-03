@@ -39,3 +39,10 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+namespace CMS.WebApi
+{
+    public partial class Program
+    {
+    }
+}
