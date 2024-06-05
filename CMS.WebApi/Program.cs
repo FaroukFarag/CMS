@@ -18,6 +18,7 @@ builder.Services.RegisterAutoMapper();
 builder.Services.RegisterValidators();
 builder.Services.RegisterIdentity();
 builder.Services.RegisterJwtSettings(builder.Configuration);
+builder.Services.SeedData();
 
 var app = builder.Build();
 

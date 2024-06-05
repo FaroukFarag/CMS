@@ -1,6 +1,6 @@
 ﻿namespace CMS.IntegrationTest.Models;
 
-[CollectionDefinition("CMS", DisableParallelization = true)]
+[CollectionDefinition("CMSCollection", DisableParallelization = true)]
 public class CMSCollectionDefinition : ICollectionFixture<CMSFixture>
 {
 }

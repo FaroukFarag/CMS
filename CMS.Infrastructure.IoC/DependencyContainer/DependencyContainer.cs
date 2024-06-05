@@ -15,6 +15,7 @@ using CMS.Domain.Interfaces.UnitOfWork;
 using CMS.Domain.Models.Users;
 using CMS.Infrastructure.Data.Context;
 using CMS.Infrastructure.Data.Repositories.Customers;
+using CMS.Infrastructure.Data.Seeding;
 using CMS.Infrastructure.Data.UnitOfWork;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -103,5 +104,17 @@ public static class DependencyContainer
                 ClockSkew = new TimeSpan(0, 2, 0)
             };
         });
+    }
+
+    public static void SeedData(this IServiceCollection services)
+    {
+        var serviceProvider = services.BuildServiceProvider();
+
+        using var scope = serviceProvider.CreateScope();
+
+        var scopedServiceProvider = scope.ServiceProvider;
+        var userManager = scopedServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+        DataSeeder.SeedUserData(scopedServiceProvider, userManager).Wait();
     }
 }

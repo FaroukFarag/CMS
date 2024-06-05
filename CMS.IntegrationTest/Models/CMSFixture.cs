@@ -1,5 +1,7 @@
-﻿using CMS.WebApi;
+﻿using CMS.Application.Dtos.Users;
+using CMS.WebApi;
 using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -9,6 +11,7 @@ public class CMSFixture : IDisposable
 {
     private readonly HttpClient _httpClient;
     private readonly string _url = "https://localhost:7096/api";
+    private string _token = string.Empty;
 
     public CMSFixture()
     {
@@ -19,6 +22,29 @@ public class CMSFixture : IDisposable
         };
 
         _httpClient = webApplicationFactory.CreateClient(options);
+
+        if (_token == string.Empty)
+            GenerateToken().Wait();
+
+        else
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+    }
+
+    private async Task GenerateToken()
+    {
+        var loginEndpoint = "Users/login";
+        var loginRequest = new LoginDto
+        {
+            UserName = "admin@cms.com",
+            Password = "Admin123!"
+        };
+
+        var response = await _httpClient.PostAsJsonAsync($"{_httpClient.BaseAddress}/{loginEndpoint}", loginRequest);
+        response.EnsureSuccessStatusCode();
+
+        _token = await response.Content.ReadAsStringAsync();
+
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
     }
 
     public async Task<TResponse> Act_PostAsync<TRequest, TResponse>(string endpoint, TRequest request)
